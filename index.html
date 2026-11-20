@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facebook Comment-to-DM Starter</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f3f6fb; color: #172033; }
+    main { max-width: 680px; margin: 40px auto; padding: 24px; background: white; border-radius: 14px; }
+    h1 { font-size: 26px; }
+    p { line-height: 1.55; }
+    .note { padding: 14px; background: #fff4d6; border-radius: 8px; }
+    code { background: #eef1f6; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Facebook Comment-to-DM</h1>
+    <p>Your website starter is online. This page is the control-panel placeholder.</p>
+    <p>Server status: <strong id="status">Checking…</strong></p>
+    <div class="note">
+      <strong>Important:</strong> Automatic Facebook messaging is not active yet.
+      It needs a Meta developer app, Facebook Page permissions, webhook setup,
+      and approval/authorization under Meta's rules.
+    </div>
+  </main>
+  <script>
+    fetch("/health")
+      .then(r => r.json())
+      .then(data => document.getElementById("status").textContent = data.ok ? "Online" : "Not ready")
+      .catch(() => document.getElementById("status").textContent = "Not connected");
+  </script>
+</body>
+</html>
